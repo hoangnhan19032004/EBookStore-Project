@@ -1,0 +1,297 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    /* ---------- BREADCRUMB ---------- */
+    .modern-breadcrumb {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 0.75rem 1.25rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+        .modern-breadcrumb .breadcrumb {
+            background: transparent;
+            margin: 0;
+            padding: 0;
+            font-size: 0.95rem;
+        }
+
+        .modern-breadcrumb .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.25s;
+        }
+
+            .modern-breadcrumb .breadcrumb-item a:hover {
+                color: #fff;
+                transform: translateX(3px);
+            }
+
+        .modern-breadcrumb .breadcrumb-item.active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .modern-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+    /* ---------- STATS CARD ---------- */
+    .stats-card {
+        position: relative;
+        border-radius: 15px;
+        padding: 0.55rem;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        color: #fff;
+        animation: fadeInUp 0.6s ease-out both;
+    }
+
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+            .stats-card:hover::before {
+                opacity: 1;
+            }
+
+        .stats-card.card-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stats-card.card-warning {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stats-card.card-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stats-card.card-danger {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+    .card-icon-wrapper {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+        transition: transform 0.35s ease, background 0.35s ease;
+    }
+
+    .stats-card:hover .card-icon-wrapper {
+        transform: rotate(8deg) scale(1.08);
+        background: rgba(255, 255, 255, 0.28);
+    }
+
+    .card-icon-wrapper i {
+        font-size: 1.6rem;
+        color: #fff;
+    }
+
+    .stats-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .stats-number {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+    }
+
+    .stats-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        opacity: 0.95;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .card-footer-modern {
+        margin-top: 0.65rem;
+        padding-top: 0.65rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .view-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.25s, background 0.25s;
+        padding: 0.45rem 0.9rem;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+        .view-link:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateX(6px);
+        }
+
+        .view-link i {
+            transition: transform 0.25s;
+        }
+
+    /* ---------- ANIMATIONS ---------- */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .pulse-effect {
+        animation: pulse 2.2s infinite;
+    }
+
+    @@keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.06);
+        }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @@media (max-width: 768px) {
+        .stats-number {
+            font-size: 1.4rem;
+        }
+
+        .card-icon-wrapper {
+            width: 50px;
+            height: 50px;
+        }
+
+        .modern-breadcrumb {
+            padding: 0.6rem 0.9rem;
+        }
+    }
+</style>
+
+<!-- Breadcrumb -->
+<div class="modern-breadcrumb">
+    <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item">
+            <a href="/Admin/Homes">
+                <i class="fas fa-home me-2"></i>Trang Chủ
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Tổng quan</li>
+    </ol>
+</div>
+
+<!-- Cards -->
+<div class="row g-3">
+    <div class="col-xl-3 col-md-6">
+        <div class="stats-card card-primary h-100">
+            <div class="card-icon-wrapper pulse-effect" aria-hidden="true">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="stats-content">
+                <div class="stats-number">@ViewBag.coutFeedBack</div>
+                <div class="stats-label">Liên hệ mới</div>
+                <div class="card-footer-modern">
+                    <a href="/Admin/FeedBack/Index" class="view-link">
+                        <span>Xem ngay</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="stats-card card-warning h-100">
+            <div class="card-icon-wrapper pulse-effect" aria-hidden="true">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stats-content">
+                <div class="stats-number">@ViewBag.coutUser</div>
+                <div class="stats-label">Người dùng</div>
+                <div class="card-footer-modern">
+                    <a href="/Admin/User/Index" class="view-link">
+                        <span>Xem ngay</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="stats-card card-success h-100">
+            <div class="card-icon-wrapper pulse-effect" aria-hidden="true">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="stats-content">
+                <div class="stats-number">@ViewBag.coutOrder</div>
+                <div class="stats-label">Đơn hàng mới</div>
+                <div class="card-footer-modern">
+                    <a href="/Admin/HoaDon/XacNhan" class="view-link">
+                        <span>Xem ngay</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="stats-card card-danger h-100">
+            <div class="card-icon-wrapper pulse-effect" aria-hidden="true">
+                <i class="fas fa-box"></i>
+            </div>
+            <div class="stats-content">
+                <div class="stats-number">@ViewBag.coutNhapHang</div>
+                <div class="stats-label">Phiếu nhập mới</div>
+                <div class="card-footer-modern">
+                    <a href="/Admin/NhapHang/Index" class="view-link">
+                        <span>Xem ngay</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

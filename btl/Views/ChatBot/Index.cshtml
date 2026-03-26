@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Chatbot hỗ trợ";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<main id="content">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card shadow-lg border-0" style="border-radius:18px;">
+                    <div class="card-header bg-primary text-white" style="border-radius:18px 18px 0 0;">
+                        <h4 class="mb-0">
+                            🤖 Chatbot hỗ trợ khách hàng
+                        </h4>
+                        <small>Hỏi về sách, đơn hàng, thanh toán, ...</small>
+                    </div>
+
+                    <div class="card-body" style="height:420px; overflow-y:auto;" id="chatWindow">
+                        <!-- Tin nhắn sẽ được append vào đây -->
+                        <div class="text-muted small mb-2">
+                            Chatbot: Xin chào, mình có thể giúp gì cho bạn? 😊
+                        </div>
+                    </div>
+
+                    <div class="card-footer bg-light" style="border-radius:0 0 18px 18px;">
+                        <div class="input-group">
+                            <textarea id="txtMessage"
+                                      class="form-control"
+                                      rows="1"
+                                      placeholder="Nhập câu hỏi của bạn..."
+                                      style="resize:none"></textarea>
+
+                            <div class="input-group-append">
+                                <button id="btnSend" class="btn btn-primary">
+                                    Gửi
+                                </button>
+                            </div>
+                        </div>
+                        <small class="text-muted">
+                            Nhấn Enter để gửi, Shift + Enter để xuống dòng.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+@section scripts{
+    <script>
+        // Hàm thêm 1 bubble tin nhắn vào khung chat
+        function appendMessage(sender, text, isUser) {
+            var align = isUser ? "text-right" : "text-left";
+            var bg = isUser ? "bg-primary text-white" : "bg-light";
+            var name = isUser ? "Bạn" : "Chatbot";
+
+            var html = `
+                <div class="mb-2 ${align}">
+                    <div class="d-inline-block px-3 py-2 ${bg}" style="border-radius:16px; max-width:80%;">
+                        <strong>${name}:</strong> ${text}
+                    </div>
+                </div>
+            `;
+
+            $("#chatWindow").append(html);
+            // Scroll xuống cuối
+            var chat = document.getElementById("chatWindow");
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        // Gửi tin nhắn
+        function sendMessage() {
+            var msg = $("#txtMessage").val().trim();
+            if (!msg) return;
+
+            // hiện tin nhắn của user trước
+            appendMessage("Bạn", msg, true);
+            $("#txtMessage").val("");
+
+            $.ajax({
+                url: '@Url.Action("SendMessage", "ChatBot")',
+                type: 'POST',
+                data: { message: msg },
+                success: function (res) {
+                    if (res && res.success) {
+                        appendMessage("Chatbot", res.reply, false);
+                    } else {
+                        appendMessage("Chatbot", res.reply || "Có lỗi xảy ra, vui lòng thử lại.", false);
+                    }
+                },
+                error: function () {
+                    appendMessage("Chatbot", "Không kết nối được server.", false);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            // Click nút GỬI
+            $("#btnSend").click(function () {
+                sendMessage();
+            });
+
+            // Enter để gửi, Shift+Enter xuống dòng
+            $("#txtMessage").keydown(function (e) {
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+}

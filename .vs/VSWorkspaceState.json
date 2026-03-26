@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\btl",
+    "\\btl\\Content",
+    "\\btl\\Content\\Client",
+    "\\btl\\Content\\Client\\js",
+    "\\btl\\Content\\Client\\js\\Plugins",
+    "\\btl\\Content\\Client\\js\\Plugins\\ckfinder",
+    "\\btl\\Content\\Client\\js\\Plugins\\ckfinder\\core",
+    "\\btl\\Content\\Client\\js\\Plugins\\ckfinder\\core\\connector",
+    "\\btl\\Content\\Client\\js\\Plugins\\ckfinder\\core\\connector\\aspx",
+    "\\btl\\Content\\Client\\js\\Plugins\\ckfinder\\core\\connector\\aspx\\lang"
+  ],
+  "SelectedNode": "\\btl\\Content\\Client\\js\\Plugins\\ckfinder\\core\\connector\\aspx\\lang\\cs.xml",
+  "PreviewInSolutionExplorer": false
+}

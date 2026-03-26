@@ -1,0 +1,299 @@
+﻿@{
+    ViewBag.Title = "Biểu đồ doanh thu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    #barBlock, #pieBlock {
+        transition: all 0.35s ease-in-out;
+    }
+
+    .zoom-active {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(0,0,0,0.15);
+        border-radius: 10px;
+        background: #fff;
+    }
+
+    h4.clickable:hover {
+        color: #dc3545;
+        text-decoration: underline;
+        transition: .2s;
+        cursor: pointer;
+    }
+</style>
+
+@section jsFooter {
+
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+    <script>
+/* ==================== FORMAT ===================== */
+function float2vnd(v) {
+    return v.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    });
+}
+
+/* ==================== DATA ===================== */
+let listDoanhThu = @Html.Raw(Json.Encode(ViewBag.listDoanhThu ?? new int[] {}));
+let listLoiNhuan = @Html.Raw(Json.Encode(ViewBag.listTongLai ?? new int[] {}));
+let ngayDoanhThu = @Html.Raw(Json.Encode(ViewBag.doanhsoNgay ?? new string[] {}));
+
+let barChart = null;
+let pieChart = null;
+
+/* ==================== DRAW ===================== */
+function renderCharts() {
+    drawBarChart();
+    drawPieChart();
+}
+
+function drawBarChart() {
+
+    let ctx = document.getElementById("barChart").getContext("2d");
+    if (barChart) barChart.destroy();
+
+    barChart = new Chart(ctx, {
+
+        type: "bar",
+
+        data: {
+            labels: ngayDoanhThu,
+            datasets: [
+                {
+                    label: "Doanh thu",
+                    data: listDoanhThu,
+                    backgroundColor: "rgba(25,184,35,0.7)",
+                    borderColor: "rgba(25,184,35,1)",
+                    borderWidth: 1
+                },
+                {
+                    label: "Lợi nhuận",
+                    data: listLoiNhuan,
+                    backgroundColor: "rgba(246,51,78,0.7)",
+                    borderColor: "rgba(246,51,78,1)",
+                    borderWidth: 1
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            animation:{
+                duration:800,
+                easing:'easeOutQuart'
+            },
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: true,
+                            callback: v => float2vnd(v)
+                        }
+                    }
+                ]
+            }
+        }
+    });
+}
+
+function drawPieChart() {
+
+    let ctx = document.getElementById("pieChart").getContext("2d");
+    if (pieChart) pieChart.destroy();
+
+    let totalDT = listDoanhThu.reduce((a, b) => a + b, 0);
+    let totalLN = listLoiNhuan.reduce((a, b) => a + b, 0);
+
+    pieChart = new Chart(ctx, {
+
+        type: "pie",
+
+        data: {
+            labels: ["Doanh thu", "Lợi nhuận"],
+            datasets: [
+                {
+                    data: [totalDT, totalLN],
+                    backgroundColor: [
+                        "rgba(25,184,35,0.85)",
+                        "rgba(246,51,78,0.85)"
+                    ],
+                    borderWidth: 2
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            animation:{
+                duration:800,
+                easing:'easeOutQuart'
+            },
+            legend: { position: "bottom" },
+            tooltips: {
+                callbacks: {
+                    label: data => {
+                        let v = data.datasets[0].data[data.index];
+                        return float2vnd(v);
+                    }
+                }
+            }
+        }
+
+    });
+}
+
+/* ==================== ZOOM SWAP SMOOTH ===================== */
+function zoomBar() {
+
+    $("#pieBlock").removeClass("zoom-active");
+    $("#barBlock").addClass("zoom-active");
+
+    $("#barBlock")
+        .removeClass("col-md-4")
+        .addClass("col-md-8");
+
+    $("#pieBlock")
+        .removeClass("col-md-8")
+        .addClass("col-md-4");
+
+    setTimeout(renderCharts, 350);
+}
+
+function zoomPie() {
+
+    $("#barBlock").removeClass("zoom-active");
+    $("#pieBlock").addClass("zoom-active");
+
+    $("#pieBlock")
+        .removeClass("col-md-4")
+        .addClass("col-md-8");
+
+    $("#barBlock")
+        .removeClass("col-md-8")
+        .addClass("col-md-4");
+
+    setTimeout(renderCharts, 350);
+}
+
+/* ==================== EVENTS ===================== */
+$(document).ready(function () {
+
+    renderCharts();
+    zoomBar();   // Mặc định bar lớn
+
+    $("#renderBtn").click(function (e) {
+        e.preventDefault();
+        renderCharts();
+    });
+
+    $(".btnExportDoanhSo").click(function (e) {
+
+        e.preventDefault();
+
+        let f = $(this).data("fromdate") || "";
+        let t = $(this).data("todate") || "";
+
+        window.location.href =
+            "/Admin/ThongKe/ExportExel"
+            + "?fromDate=" + f
+            + "&toDate=" + t;
+    });
+
+});
+    </script>
+}
+
+<!-- =========================== -->
+
+<ol class="breadcrumb">
+    <li><a href="/Admin/Homes">Trang chủ</a></li>
+    <li class="active">Biểu đồ doanh thu</li>
+</ol>
+
+@using (Html.BeginForm("DoanhThuChart", "ThongKe", FormMethod.Get))
+{
+    <div class="row">
+
+        <div class="col-md-4">
+            <label>Từ ngày</label>
+            <input class="form-control" type="date" name="fromDate" value="@ViewBag.fromDate" />
+        </div>
+
+        <div class="col-md-4">
+            <label>Đến ngày</label>
+            <input class="form-control" type="date" name="todate" value="@ViewBag.todate" />
+        </div>
+
+        <div class="col-md-12 mt-3 d-flex gap-2">
+
+            <button class="btn btn-success" id="renderBtn">
+                🔄 Tải biểu đồ
+            </button>
+
+            <button class="btn btn-success" type="submit">
+                🔍 Thống kê
+            </button>
+
+            <a class="btn btn-primary" href="/Admin/ThongKe/DoanhThu">
+                📋 Danh sách
+            </a>
+
+            <a class="btn btn-warning btnExportDoanhSo"
+               href="#"
+               data-fromdate="@ViewBag.fromDate"
+               data-todate="@ViewBag.todate">
+                📥 Export Excel
+            </a>
+
+        </div>
+
+    </div>
+}
+
+<hr />
+
+<div class="row">
+
+    <!-- BAR -->
+    <div id="barBlock" class="col-md-8">
+
+        <h4 class="text-center clickable" onclick="zoomBar()">
+            📊 BIỂU ĐỒ CỘT
+        </h4>
+
+        <canvas id="barChart" style="height:350px"></canvas>
+
+    </div>
+
+    <!-- PIE -->
+    <div id="pieBlock" class="col-md-4">
+
+        <h4 class="text-center clickable" onclick="zoomPie()">
+            🥧 BIỂU ĐỒ TRÒN
+        </h4>
+
+        <canvas id="pieChart" style="height:350px"></canvas>
+
+    </div>
+
+</div>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-md-12 text-success fw-bold">
+        Tổng Doanh Thu:
+        <b>@ViewBag.tongThu.ToString("N0") VNĐ</b>
+    </div>
+
+    <div class="col-md-12 text-danger fw-bold">
+        Tổng Lợi Nhuận:
+        <b>@ViewBag.tongLai.ToString("N0") VNĐ</b>
+    </div>
+
+</div>

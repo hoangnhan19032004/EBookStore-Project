@@ -1,0 +1,86 @@
+﻿@model Mood.EF2.User
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Thêm mới quản trị viên</h1>
+                    </div>
+                    <div class="col-6 text-right">
+                        <input type="submit" value="Lưu thông tin" class="btn btn-primary btn-sm" />
+                        <a href="/Admin/User/Index" class="btn btn-danger btn-sm text-white">
+                            <i class="fas fa-arrow-circle-left"></i> Trở về
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                @Html.ValidationMessage("CreateUser1", new { @class = "text-danger" })
+                                @Html.ValidationMessage("CreateSuccess", new { @class = "text-success" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName)
+                                @Html.EditorFor(m => m.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PassWord)
+                                @Html.PasswordFor(m => m.PassWord, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Name)
+                                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Address)
+                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 5 })
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email)
+                                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Phone)
+                                @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Chức danh")
+                                @Html.DropDownListFor(m => m.IDQuyen, (SelectList)ViewBag.IDQuyen, "[Chọn chức danh]", new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Trạng thái</label><br />
+                                @Html.CheckBoxFor(m => m.Status)
+                                <span>Kích hoạt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

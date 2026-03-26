@@ -1,0 +1,187 @@
+﻿@{
+    ViewBag.Title = "Hủy Thanh Toán";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<style>
+    /* ===== BACKGROUND ===== */
+    .cancel-wrap {
+        min-height: 75vh;
+        background: linear-gradient(135deg,#ffb3b3,#ffd6cc,#ffeaea);
+        position: relative;
+        overflow: hidden;
+    }
+
+        /* Floating circles */
+        .cancel-wrap::before,
+        .cancel-wrap::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .cancel-wrap::before {
+            top: -80px;
+            left: -100px;
+        }
+
+        .cancel-wrap::after {
+            bottom: -90px;
+            right: -120px;
+        }
+
+    /* ===== CARD ===== */
+    .cancel-card {
+        backdrop-filter: blur(16px);
+        background: rgba(255,255,255,0.85);
+        border-radius: 22px;
+        box-shadow: 0 20px 40px rgba(0,0,0,.12);
+        animation: fadeUp .7s ease;
+    }
+
+    /* LƯU Ý: Dùng @@keyframes để Razor không lỗi */
+    @@keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ===== ICON ===== */
+    .cancel-icon-wrap {
+        width: 110px;
+        height: 110px;
+        margin: auto;
+        border-radius: 50%;
+        background: linear-gradient(135deg,#ff7676,#ff2f2f);
+        box-shadow: 0 10px 25px rgba(255,56,56,.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 1.2s infinite;
+    }
+
+    .cancel-icon i {
+        font-size: 55px;
+        color: #fff;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @@keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.06);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* ===== TEXT ===== */
+    .cancel-title {
+        font-weight: 800;
+        color: #ff2f2f;
+    }
+
+    .cancel-desc {
+        color: #666;
+        line-height: 1.7;
+    }
+
+    /* ===== BUTTON ===== */
+    .btn-cancel-home {
+        background: linear-gradient(135deg,#ff2f2f,#ff7676);
+        border: none;
+        color: #fff;
+        border-radius: 30px;
+        padding: 12px 28px;
+        transition: .25s;
+    }
+
+        .btn-cancel-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,0,0,.4);
+            color: #fff;
+        }
+
+    .btn-cancel-cart {
+        border-radius: 30px;
+        padding: 12px 28px;
+        transition: .25s;
+    }
+
+        .btn-cancel-cart:hover {
+            background: #222;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,.25);
+        }
+</style>
+
+
+<section class="cancel-wrap d-flex align-items-center justify-content-center">
+
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-6 col-lg-5">
+
+                <div class="cancel-card text-center p-5">
+
+                    <!-- ICON -->
+                    <div class="mb-4 cancel-icon">
+                        <div class="cancel-icon-wrap">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+
+                    <!-- TITLE -->
+                    <h2 class="cancel-title mb-3">
+                        Thanh toán đã bị huỷ
+                    </h2>
+
+                    <!-- DESC -->
+                    <p class="cancel-desc mb-4">
+                        Giao dịch của bạn chưa được hoàn tất.
+                        Có thể bạn đã hủy thanh toán hoặc xảy ra sự cố
+                        trong quá trình xử lý. Vui lòng thử lại khi sẵn sàng.
+                    </p>
+
+                    <!-- BUTTONS -->
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+
+                        <a href="/trang-chu"
+                           class="btn btn-cancel-home mb-2 mb-sm-0">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Về Trang Chủ
+                        </a>
+
+                        <a href="/gio-hang"
+                           class="btn btn-outline-dark btn-cancel-cart">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            Mua lại
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,158 @@
+﻿@model X.PagedList.IPagedList<Mood.ThongKeModel.ThongKeModelView>
+@using X.PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Doanh Thu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section jsFooter {
+
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+
+    <script>
+        $(function () {
+
+            $(".btnExportDoanhSo").on("click", function (e) {
+                e.preventDefault();
+
+                let fromDate = $(this).data("fromdate") || "";
+                let toDate = $(this).data("todate") || "";
+
+                let url = "/Admin/ThongKe/ExportExel?fromDate="
+                    + encodeURIComponent(fromDate)
+                    + "&toDate="
+                    + encodeURIComponent(toDate);
+
+                window.location.href = url;
+            });
+
+        });
+    </script>
+
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Admin/Homes">Trang Chủ</a>
+    </li>
+    <li class="breadcrumb-item active">
+        Thống kê doanh thu
+    </li>
+</ol>
+
+@using (Html.BeginForm("DoanhThu", "ThongKe", FormMethod.Get))
+{
+    <div class="form-group">
+        <div class="row">
+
+            <div class="col-md-4">
+                <label><b>Từ ngày</b></label>
+                <input type="date"
+                       name="fromDate"
+                       value="@ViewBag.fromDate"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                <label><b>Đến ngày</b></label>
+                <input type="date"
+                       name="todate"
+                       value="@ViewBag.todate"
+                       class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-10 d-flex gap-2">
+
+                <a href="/Admin/ThongKe/DoanhThu"
+                   class="btn btn-success">
+                    📈 Tải lại danh sách
+                </a>
+
+                <a href="/Admin/ThongKe/DoanhThuChart"
+                   class="btn btn-success">
+                    📊 Xem biểu đồ
+                </a>
+
+                <button class="btn btn-success" type="submit">
+                    🔍 Tra Cứu
+                </button>
+
+                <a href="javascript:void(0)"
+                   class="btn btn-warning btnExportDoanhSo"
+                   data-fromdate="@ViewBag.fromDate"
+                   data-todate="@ViewBag.todate">
+                    📥 Export Excel
+                </a>
+
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table table-hover table-striped table-bordered mt-3">
+    <thead>
+        <tr class="text-center">
+            <th>Ngày Thống Kê</th>
+            <th>Doanh Thu</th>
+            <th>Lợi Nhuận</th>
+        </tr>
+    </thead>
+
+    <tbody class="text-center">
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Convert.ToDateTime(item.DoanhThuNgay).ToString("dd/MM/yyyy")
+                </td>
+
+                <td>
+                    @string.Format("{0:N0}", item.DoanhThu) VNĐ
+                </td>
+
+                <td>
+                    @string.Format("{0:N0}", item.TongLai) VNĐ
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td></td>
+
+            <td>
+                <span class="text-success fw-bold">
+                    Tổng doanh thu:
+                    @ViewBag.tongThu.ToString("N0") VNĐ
+                </span>
+            </td>
+
+            <td>
+                <span class="text-danger fw-bold">
+                    Tổng lợi nhuận:
+                    @ViewBag.tongLai.ToString("N0") VNĐ
+                </span>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@Html.PagedListPager(
+    Model,
+    page => Url.Action("DoanhThu", new { page = page }),
+    new PagedListRenderOptions
+    {
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+        LinkToPreviousPageFormat = "Trước",
+        LinkToNextPageFormat = "Kế Tiếp"
+    })

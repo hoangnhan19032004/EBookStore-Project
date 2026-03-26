@@ -1,0 +1,282 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\momo api\\momoinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\momo api\\momoinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|c:\\users\\thucc\\onedrive\\desktop\\websitebansach\\websitebansach\\btl\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\views\\cart\\paymentmomo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\views\\cart\\paymentmomo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\momo api\\paymentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\momo api\\paymentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44D6D752-3BF7-4A29-80D0-6030647BE03C}|Mood\\Mood.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\mood\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{44D6D752-3BF7-4A29-80D0-6030647BE03C}|Mood\\Mood.csproj|solutionrelative:mood\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\controllers\\chatbotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\controllers\\chatbotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\services\\openaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\services\\openaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\views\\chatbot\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\views\\chatbot\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\scripts\\chatbot.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{98FBB889-A7BC-4C1A-BF38-6F4D30F7790D}|btl\\dtbso.csproj|solutionrelative:btl\\scripts\\chatbot.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "btl\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Controllers\\CartController.cs",
+              "RelativeToolTip": "btl\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAEYCAAAAAAAAAAAUwFwCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T08:49:45.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaymentMoMo.cshtml",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Views\\Cart\\PaymentMoMo.cshtml",
+              "RelativeDocumentMoniker": "btl\\Views\\Cart\\PaymentMoMo.cshtml",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Views\\Cart\\PaymentMoMo.cshtml",
+              "RelativeToolTip": "btl\\Views\\Cart\\PaymentMoMo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0CAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-08T08:49:15.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "momoInfo.cs",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\MoMo API\\momoInfo.cs",
+              "RelativeDocumentMoniker": "btl\\MoMo API\\momoInfo.cs",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\MoMo API\\momoInfo.cs",
+              "RelativeToolTip": "btl\\MoMo API\\momoInfo.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T08:45:37.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChatBotController.cs",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Controllers\\ChatBotController.cs",
+              "RelativeDocumentMoniker": "btl\\Controllers\\ChatBotController.cs",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Controllers\\ChatBotController.cs",
+              "RelativeToolTip": "btl\\Controllers\\ChatBotController.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAqwKIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T15:05:38.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Global.asax.cs",
+              "RelativeDocumentMoniker": "btl\\Global.asax.cs",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Global.asax.cs",
+              "RelativeToolTip": "btl\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T14:58:08.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Web.config",
+              "RelativeDocumentMoniker": "btl\\Web.config",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Web.config",
+              "RelativeToolTip": "btl\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-03T14:42:42.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PayMentRequest.cs",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\MoMo API\\PayMentRequest.cs",
+              "RelativeDocumentMoniker": "btl\\MoMo API\\PayMentRequest.cs",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\MoMo API\\PayMentRequest.cs",
+              "RelativeToolTip": "btl\\MoMo API\\PayMentRequest.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwC8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T08:49:02.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\Mood\\App.config",
+              "RelativeDocumentMoniker": "Mood\\App.config",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\Mood\\App.config",
+              "RelativeToolTip": "Mood\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-08T08:08:47.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OpenAIService.cs",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Services\\OpenAIService.cs",
+              "RelativeDocumentMoniker": "btl\\Services\\OpenAIService.cs",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Services\\OpenAIService.cs",
+              "RelativeToolTip": "btl\\Services\\OpenAIService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA+wFMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T14:40:35.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Views\\ChatBot\\Index.cshtml",
+              "RelativeDocumentMoniker": "btl\\Views\\ChatBot\\Index.cshtml",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Views\\ChatBot\\Index.cshtml",
+              "RelativeToolTip": "btl\\Views\\ChatBot\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T14:25:18.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_LayoutHome.cshtml",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Views\\Shared\\_LayoutHome.cshtml",
+              "RelativeDocumentMoniker": "btl\\Views\\Shared\\_LayoutHome.cshtml",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Views\\Shared\\_LayoutHome.cshtml",
+              "RelativeToolTip": "btl\\Views\\Shared\\_LayoutHome.cshtml",
+              "ViewState": "AgIAADUBAAAAAAAAAAAAwCABAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T14:02:27.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Chatbot.js",
+              "DocumentMoniker": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Scripts\\Chatbot.js",
+              "RelativeDocumentMoniker": "btl\\Scripts\\Chatbot.js",
+              "ToolTip": "C:\\Users\\thucc\\OneDrive\\Desktop\\websitebansach\\websitebansach\\btl\\Scripts\\Chatbot.js",
+              "RelativeToolTip": "btl\\Scripts\\Chatbot.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-03T14:01:34.799Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1177,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Xác nhận thanh toán";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+
+    bool status = (bool)ViewBag.status;
+}
+
+<main id="content">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-75">
+            <div class="col-md-7 col-lg-6">
+
+                <div class="card shadow-lg border-0 rounded-4 text-center p-4">
+
+                    @if (status)
+                    {
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle" style="font-size:72px;color:#00bfa6"></i>
+                        </div>
+
+                        <h3 class="fw-bold mb-3" style="color:#00bfa6">
+                            Thanh toán thành công!
+                        </h3>
+
+                        <p class="fs-5 text-muted">
+                            Cảm ơn bạn đã mua hàng tại cửa hàng chúng tôi.
+                            <br />
+                            Nhân viên sẽ sớm liên hệ để xác nhận đơn hàng.
+                        </p>
+
+                        <a href="~/"
+                           class="btn btn-lg rounded-pill mt-4 px-5 text-white"
+                           style="background:#00bfa6">
+                            <i class="fas fa-home me-2"></i> Về trang chủ
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="mb-4">
+                            <i class="fas fa-times-circle text-danger" style="font-size:72px"></i>
+                        </div>
+
+                        <h3 class="text-danger fw-bold mb-3">
+                            Thanh toán thất bại!
+                        </h3>
+
+                        <p class="fs-5 text-muted">
+                            Giao dịch không thành công.
+                            <br />
+                            Vui lòng thử lại hoặc chọn hình thức thanh toán khác.
+                        </p>
+
+                        <a href="~/" class="btn btn-danger btn-lg rounded-pill mt-4 px-5">
+                            <i class="fas fa-redo me-2"></i> Quay lại trang chủ
+                        </a>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

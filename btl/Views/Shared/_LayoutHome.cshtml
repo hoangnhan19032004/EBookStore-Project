@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Trang Chủ | Hiệu Sách</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="~/assets/img/imgbook/faviconDongTrieu.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="~/assets/css/jquery-ui.css" rel="stylesheet" />
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/vendor/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/vendor/animate.css/animate.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/assets/vendor/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link href="~/assets/css/flipdown.css" rel="stylesheet" />
+
+    <!-- Theme -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+</head>
+
+<body>
+
+    <!-- ===================== -->
+    <!-- 🤖 SMART CHATBOT UI -->
+    <!-- ===================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+
+        :root {
+            --main: #6610f2;
+            --blue: #0d6efd;
+            --bot: #eef1f7;
+            --bg: #f6f8fc;
+        }
+
+        /* ===== FAB ===== */
+        #chatbot-fab {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,var(--main),var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 100000;
+            box-shadow: 0 10px 26px rgba(0,0,0,.25);
+            transition: .25s;
+        }
+
+            #chatbot-fab:hover {
+                transform: scale(1.06);
+            }
+
+        /* ===== BOX ===== */
+        #chatbot-box {
+            position: fixed;
+            bottom: 95px;
+            right: 18px;
+            width: 375px;
+            height: 560px;
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            display: none;
+            box-shadow: 0 16px 40px rgba(0,0,0,.32);
+            z-index: 99999;
+            animation: fadeUp .2s ease;
+        }
+
+        @@keyframes fadeUp {
+            from {
+                transform: translateY(15px);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        /* ===== HEADER ===== */
+        #ai-header {
+            background: linear-gradient(135deg,var(--main),var(--blue));
+            padding: 14px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+            #ai-header i {
+                cursor: pointer;
+                opacity: .9;
+            }
+
+        /* ===== CONTENT ===== */
+        #ai-chat-content {
+            height: 390px;
+            background: var(--bg);
+            padding: 12px;
+            overflow-y: auto;
+            /* Firefox */
+            scrollbar-width: thin;
+            scrollbar-color: #bbb #eee;
+        }
+
+            /* ===== SCROLLBAR CHROME ===== */
+            #ai-chat-content::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            #ai-chat-content::-webkit-scrollbar-track {
+                background: #eee;
+            }
+
+            #ai-chat-content::-webkit-scrollbar-thumb {
+                background: #bbb;
+                border-radius: 10px;
+            }
+
+        /* ===== BUBBLE ===== */
+        .msg {
+            display: flex;
+            margin-bottom: 12px;
+            animation: bubble .15s ease;
+        }
+
+        @@keyframes bubble {
+            from {
+                opacity: 0;
+                transform: scale(.95)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .user {
+            justify-content: flex-end;
+        }
+
+        .bot {
+            justify-content: flex-start;
+        }
+
+        .bubble {
+            max-width: 75%;
+            padding: 10px 16px;
+            border-radius: 18px;
+            font-size: 14.5px;
+            line-height: 1.45;
+            box-shadow: 0 3px 10px rgba(0,0,0,.08);
+        }
+
+        .user .bubble {
+            background: linear-gradient(135deg,var(--main),var(--blue));
+            color: #fff;
+            border-bottom-right-radius: 6px;
+        }
+
+        .bot .bubble {
+            background: var(--bot);
+            color: #333;
+            border-bottom-left-radius: 6px;
+        }
+
+        /* ===== AVATAR ===== */
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg,var(--main),var(--blue));
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+        }
+
+        /* ===== INPUT ===== */
+
+        #chat-input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        #txt-ai {
+            flex: 1;
+            background: #f1f4fa;
+            border: none;
+            outline: none;
+            border-radius: 16px;
+            padding: 12px 14px;
+            font-size: 14px;
+        }
+
+        #btn-send {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg,var(--main),var(--blue));
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+            #btn-send:hover {
+                transform: scale(1.1);
+            }
+
+
+        /* ===== TYPING ===== */
+
+        .typing {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 44px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #aaa;
+            border-radius: 50%;
+            animation: blink 1.3s infinite both;
+        }
+
+        @@keyframes blink {
+            0% {
+                opacity: .2
+            }
+
+            20% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: .2
+            }
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: .4s
+        }
+    </style>
+
+    <!-- BUTTON -->
+    <div id="chatbot-fab" onclick="toggleChatbot()">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+
+    <!-- CHAT WINDOW -->
+    <div id="chatbot-box">
+
+        <div id="ai-header">
+            🤖 EBookBot ( Hỗ Trợ Khách Hàng )
+            <i class="fa-solid fa-xmark" onclick="toggleChatbot()"></i>
+        </div>
+
+        <div id="ai-chat-content"></div>
+
+        <div id="chat-input">
+            <input id="txt-ai"
+                   placeholder="Hỏi về sách, giá, tác giả..."
+                   onkeydown="if(event.key==='Enter')sendAI()" />
+
+            <button id="btn-send" onclick="sendAI()">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+
+        function toggleChatbot() {
+            $("#chatbot-box").toggle();
+        }
+
+        /* USER BUBBLE */
+        function addUser(text) {
+
+            $("#ai-chat-content").append(`
+            <div class="msg user">
+                <div class="bubble">${text}</div>
+            </div>
+        `);
+        }
+
+        /* BOT BUBBLE */
+        function addBot(text) {
+
+            $("#ai-chat-content").append(`
+            <div class="msg bot">
+                <div class="avatar">🤖</div>
+                <div class="bubble">${text}</div>
+            </div>
+        `);
+        }
+
+        /* TYPING */
+        function typingOn() {
+
+            $("#ai-chat-content").append(`
+            <div class="typing" id="typing">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        `);
+        }
+
+        /* REMOVE TYPING */
+        function typingOff() {
+            $("#typing").remove();
+        }
+
+        /* SEND MSG */
+        function sendAI() {
+
+            let msg = $("#txt-ai").val().trim();
+            if (!msg) return;
+
+            addUser(msg);
+            $("#txt-ai").val("");
+
+            typingOn();
+
+            $.post('/ChatBot/Ask', { message: msg }, function (res) {
+
+                typingOff();
+                addBot(res.reply);
+
+                let box = document.getElementById("ai-chat-content");
+
+                $(box).stop().animate({
+                    scrollTop: box.scrollHeight
+                }, 350);
+
+            });
+        }
+
+    </script>
+
+
+
+
+
+
+
+    <!-- ======================= -->
+    <!-- ✅ HEADER + BODY -->
+    <!-- ======================= -->
+
+    @{Html.RenderAction("Header", "Home");}
+
+
+    @RenderSection("silder", required: false)
+
+    @RenderBody()
+
+    @{Html.RenderAction("Footer", "Home");}
+
+
+    <!-- ======================= -->
+    <!-- ✅ JS SCRIPT GIỮ NGUYÊN -->
+    <!-- ======================= -->
+
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/assets/vendor/slick-carousel/slick/slick.min.js"></script>
+    <script src="/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
+    <script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/assets/js/flipdown.js"></script>
+
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="/Content/Home/js/jquery-ui.js"></script>
+
+    <script src="/assets/js/hs.core.js"></script>
+    <script src="/assets/js/components/hs.unfold.js"></script>
+    <script src="/assets/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="/assets/js/components/hs.header.js"></script>
+    <script src="/assets/js/components/hs.slick-carousel.js"></script>
+    <script src="../../assets/js/components/hs.quantity-counter.js"></script>
+    <script src="/assets/js/components/hs.selectpicker.js"></script>
+    <script src="/assets/js/components/hs.show-animation.js"></script>
+
+    <script src="~/Content/libs/toastr/toastr.js"></script>
+    <script src="~/Content/libs/commonjs/loginCommon.js"></script>
+    <script src="~/Content/libs/commonjs/cartCommon.js"></script>
+
+    @RenderSection("jsFooter", required: false);
+
+    <script>
+        $(document).on('ready', function () {
+
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+            $.HSCore.components.HSHeader.init($('#header'));
+            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+            $.HSCore.components.HSQantityCounter.init('.js-quantity');
+            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+            var zeynep = $('.zeynep').zeynep({
+                onClosed: function () {
+                    $("body main").attr("style", "");
+                },
+                onOpened: function () {
+                    $("body main").attr("style", "pointer-events: none;");
+                }
+            });
+
+            $(".zeynep-overlay").click(function () {
+                zeynep.close();
+            });
+
+            $(".cat-menu").click(function () {
+                $("html").hasClass("zeynep-opened") ?
+                    zeynep.close() : zeynep.open();
+            });
+
+            $('.btn-delete-cart-header').off('click').on('click', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    data: { id: $(this).data('id') },
+                    url: '/Cart/Delete',
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res.status == true) {
+                            notificationService().displaySuccess("Xóa khỏi giỏ hàng thành công.");
+                            setTimeout(function () {
+                                window.location.reload(1);
+                            }, 2000);
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <script src="~/Content/Home/js/Controller/baseController.js"></script>
+
+</body>
+</html>
